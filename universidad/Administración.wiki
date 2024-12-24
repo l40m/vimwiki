@@ -1,0 +1,10 @@
+= Administración =
+== Contents ==
+- [[#Plan de clase|Plan de clase]]
+- [[#Tareas|Tareas]]
+
+== Plan de clase ==
+== Tareas ==
+1. [x] Línea del tiempo sobre el proceso administrativo
+2. [] Tabla comparativa de las escuelas de la administración
+[[3]]. [] Aplicar [[epa|el proceso administrativo]]

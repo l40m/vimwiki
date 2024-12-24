@@ -1,0 +1,7 @@
+= Después de Libreboot en Void Linux =
+
+== Audio ==
+=== Alsamixer ===
+=== Pulseaudio ===
+
+Alsamixer parece algo complicado de configurar. Para evitar problemas usa pulseaudio. 

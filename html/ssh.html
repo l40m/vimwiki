@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>ssh</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="SSH"><h1 id="SSH" class="header"><a href="#SSH">SSH</a></h1></div>
+
+<div id="SSH-Dependencias"><h2 id="Dependencias" class="header"><a href="#SSH-Dependencias">Dependencias</a></h2></div>
+<ul>
+<li>
+openssh-server
+
+</ul>
+
+<div id="SSH-Configuración"><h2 id="Configuración" class="header"><a href="#SSH-Configuración">Configuración</a></h2></div>
+<ol>
+<li>
+Elige una contraseña con passwd
+
+<li>
+Inicia el sistema con &gt; sudo service ssh start
+
+</ol>
+<p>
+Si quieres que se mantenga a cada inicio de sesión puede añadirlo a tu $HOME/.xinitrc como:    sudo service ssh start &amp;
+</p>
+
+<div id="SSH-`backup` y `restore` de Tiny Core Linux"><h2 id="`backup` y `restore` de Tiny Core Linux" class="header"><a href="#SSH-`backup` y `restore` de Tiny Core Linux"><code>backup</code> y <code>restore</code> de Tiny Core Linux</a></h2></div>
+<p>
+Añadir estas lineas a <code>/opt/.filetool.lst</code>:
+etc/ssh
+etc/shadow
+</p>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>ed</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Estadística descriptiva"><h1 id="Estadística descriptiva" class="header"><a href="#Estadística descriptiva">Estadística descriptiva</a></h1></div>
+
+<div id="Estadística descriptiva-Calcular la `media`, `mediana` y la `moda`"><h2 id="Calcular la `media`, `mediana` y la `moda`" class="header"><a href="#Estadística descriptiva-Calcular la `media`, `mediana` y la `moda`">Calcular la <code>media</code>, <code>mediana</code> y la <code>moda</code></a></h2></div>
+
+<p>
+<span id="Estadística descriptiva-Calcular la <code>media</code>, <code>mediana</code> y la <code>moda</code>-Con statistics"></span><strong id="Con statistics">Con statistics</strong>:
+</p>
+
+<ul>
+<li>
+<span id="Estadística descriptiva-Calcular la <code>media</code>, <code>mediana</code> y la <code>moda</code>-Para la media"></span><strong id="Para la media">Para la media</strong>:
+
+</ul>
+<p>
+<code>print (statistics.mean([a,a,a,a]))</code>
+</p>
+
+<ul>
+<li>
+<span id="Estadística descriptiva-Calcular la <code>media</code>, <code>mediana</code> y la <code>moda</code>-Para la mediana"></span><strong id="Para la mediana">Para la mediana</strong>:
+
+</ul>
+<p>
+<code>print (statistics.median([a,a,a,a]))</code>
+</p>
+
+<ul>
+<li>
+<span id="Estadística descriptiva-Calcular la <code>media</code>, <code>mediana</code> y la <code>moda</code>-Para la moda"></span><strong id="Para la moda">Para la moda</strong>:
+
+</ul>
+<p>
+<code>print (statistics.mode([a,a,a,a,a]))</code>
+</p>
+
+<div id="Estadística descriptiva-Calcular la `media`, `mediana` y la `moda`-*Calcular la media ponderada*:"><h3 id="*Calcular la media ponderada*:" class="header"><a href="#Estadística descriptiva-Calcular la `media`, `mediana` y la `moda`-*Calcular la media ponderada*:"><span id="Estadística descriptiva-Calcular la <code>media</code>, <code>mediana</code> y la <code>moda</code>-*Calcular la media ponderada*:-Calcular la media ponderada"></span><strong id="Calcular la media ponderada">Calcular la media ponderada</strong>:</a></h3></div>
+
+<p>
+<span id="Estadística descriptiva-Calcular la <code>media</code>, <code>mediana</code> y la <code>moda</code>-*Calcular la media ponderada*:-Con numpy"></span><strong id="Con numpy">Con numpy</strong>:
+<code>import numpy as np</code>
+<code>print (np.average([1, 2, 3], weights=[1, 0, 1]))</code>
+</p>
+
+<p>
+<span id="Estadística descriptiva-Calcular la <code>media</code>, <code>mediana</code> y la <code>moda</code>-*Calcular la media ponderada*:-Con wieightedstats"></span><strong id="Con wieightedstats">Con wieightedstats</strong>:
+<code>import weightedstats as ws</code>
+</p>
+
+<p>
+<code>my_data = [1, 2, 3, 4, 5]</code>
+<code>my_weights = [10, 1, 1, 1, 9]</code>
+</p>
+
+<p>
+<code>ws.weighted_mean([a,a,a,a], weights=[a,a,a,a])</code>
+<code>ws.weighted_median([a,a,a,a], weights=[a,a,a,a])</code>
+</p>
+
+<p>
+<span id="Estadística descriptiva-Calcular la <code>media</code>, <code>mediana</code> y la <code>moda</code>-*Calcular la media ponderada*:-Media y mediana ponderada especial, función para ser usada con numpy array"></span><strong id="Media y mediana ponderada especial, función para ser usada con numpy array">Media y mediana ponderada especial, función para ser usada con numpy array</strong>
+<code>ws.numpy_weighted_mean([], weights=[])</code>
+<code>ws.numpy_weighted_median([], weights=[])</code>
+</p>
+
+</body>
+</html>

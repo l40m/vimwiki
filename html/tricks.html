@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>tricks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Trucos y esas cosas"><h1 id="Trucos y esas cosas" class="header"><a href="#Trucos y esas cosas">Trucos y esas cosas</a></h1></div>
+
+<div id="Trucos y esas cosas-youtube-dl+[[mpv]]"><h2 id="youtube-dl+[[mpv]]" class="header"><a href="#Trucos y esas cosas-youtube-dl+[[mpv]]">youtube-dl+<a href="mpv.html">mpv</a></a></h2></div>
+<p>
+Compilar ffmpeg con: <code>./configure --enable-nonfree --enable-openssl</code>.
+</p>
+
+<div id="Trucos y esas cosas-Calibre"><h2 id="Calibre" class="header"><a href="#Trucos y esas cosas-Calibre">Calibre</a></h2></div>
+<p>
+Comando para crear un epub de un pdf existente:
+</p>
+<blockquote>
+<code>ebook-convert out.epub in.pdf</code>
+</blockquote>
+
+<div id="Trucos y esas cosas-wkhtml"><h2 id="wkhtml" class="header"><a href="#Trucos y esas cosas-wkhtml">wkhtml</a></h2></div>
+<blockquote>
+<code>wkhtmltopdf link -o name.pdf</code>
+</blockquote>
+    
+<div id="Trucos y esas cosas-Stremear un server local usando sshfs"><h2 id="Stremear un server local usando sshfs" class="header"><a href="#Trucos y esas cosas-Stremear un server local usando sshfs">Stremear un server local usando sshfs</a></h2></div>
+<blockquote>
+<code>sshfs user@direction: ~/remote</code>
+</blockquote>
+
+<div id="Trucos y esas cosas-Montar un CD/DVD"><h2 id="Montar un CD/DVD" class="header"><a href="#Trucos y esas cosas-Montar un CD/DVD">Montar un CD/DVD</a></h2></div>
+<blockquote>
+<code>mount -t iso9660 /dev/scd0 /media/cdrom</code>
+</blockquote>
+<blockquote>
+<code>eject</code>
+</blockquote>
+<blockquote>
+<code>vobcopy</code>
+</blockquote>
+<div id="Trucos y esas cosas-Montar un CD/DVD-Copiar las canciones de un CD (rip)"><h3 id="Copiar las canciones de un CD (rip)" class="header"><a href="#Trucos y esas cosas-Montar un CD/DVD-Copiar las canciones de un CD (rip)">Copiar las canciones de un CD (rip)</a></h3></div>
+<blockquote>
+<code>cdparanoia -vsZB</code>
+</blockquote>
+<div id="Trucos y esas cosas-Montar un CD/DVD-Convertir las canciones a ogg"><h3 id="Convertir las canciones a ogg" class="header"><a href="#Trucos y esas cosas-Montar un CD/DVD-Convertir las canciones a ogg">Convertir las canciones a ogg</a></h3></div>
+<blockquote>
+<code>oggenc nombre_fichero.wav -b 192</code>
+</blockquote>
+
+<div id="Trucos y esas cosas-Copiar carpetas sin los archivos"><h2 id="Copiar carpetas sin los archivos" class="header"><a href="#Trucos y esas cosas-Copiar carpetas sin los archivos">Copiar carpetas sin los archivos</a></h2></div>
+<blockquote>
+<code>rysnc -a -f"+ */" -f"- *" ~/pictures/ ~/pictures/backup</code>
+</blockquote>
+<div id="Trucos y esas cosas-Sincronizar los archivos de una carpeta a otra"><h2 id="Sincronizar los archivos de una carpeta a otra" class="header"><a href="#Trucos y esas cosas-Sincronizar los archivos de una carpeta a otra">Sincronizar los archivos de una carpeta a otra</a></h2></div>
+<blockquote>
+<code>rsync -r from/ to/</code>   
+</blockquote>
+    
+<div id="Trucos y esas cosas-[[TMSU]]: ¿Cómo masivamente borrar el lote de archivos faltantes?"><h2 id="[[TMSU]]: ¿Cómo masivamente borrar el lote de archivos faltantes?" class="header"><a href="#Trucos y esas cosas-[[TMSU]]: ¿Cómo masivamente borrar el lote de archivos faltantes?"><a href="TMSU.html">TMSU</a>: ¿Cómo masivamente borrar el lote de archivos faltantes?</a></h2></div>
+<blockquote>
+<code>tmsu status | grep -a ! | cut -c 3- | sed "s/^/'/;s/$/'/" | xargs tmsu untag --all</code>
+</blockquote>
+<div id="Trucos y esas cosas-[[TMSU]]: ¿Cómo masivamente borrar el lote de archivos faltantes?-Explicación"><h3 id="Explicación" class="header"><a href="#Trucos y esas cosas-[[TMSU]]: ¿Cómo masivamente borrar el lote de archivos faltantes?-Explicación">Explicación</a></h3></div>
+<ol>
+<li>
+<code>tmsu status</code> imprime el estatus de los archivos
+
+<li>
+<code>grep -a !</code> discrimina de la impresión las lineas que tengan '!', es decir, los archivos faltantes
+
+<li>
+El principio de la linea empieza como: <code>!: nombredelarchivo.extensión</code>, por tanto, <code>cut -c 3-</code> cortaria las 3 primeras secuencias, es decir: <code>!espacio:</code>.
+
+<li>
+Es posible que los directorios tengan espacios, así que la impresión que debe manejar tmsu tiene que estar dentro comillas, por tanto, añadimos: <code>sed "s/^/'/;s/$/'/"</code>.
+
+<li>
+Así, finalmente, <code>xargs tmsu untag --all</code> eliminaria todas las etiquetas de los archivos resultantes, quizás algo como: <code>tmsu untag 'directorio del archivo/archivo.extensión' --all</code>
+
+</ol>
+
+</body>
+</html>

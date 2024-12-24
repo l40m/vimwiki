@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>dcore</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="dCore Linux"><h1 id="dCore Linux" class="header"><a href="#dCore Linux">dCore Linux</a></h1></div>
+
+<ul>
+<li>
+<a href="Sonido.html">Sonido</a>
+
+</ul>
+
+<ol>
+<li>
+<a href="dcoreinstall.html">Instalación</a>
+
+</ol>
+
+<div id="dCore Linux-Locales"><h2 id="Locales" class="header"><a href="#dCore Linux-Locales">Locales</a></h2></div>
+<p>
+Para que el sistema reconozca caracteres UFT8 y el idioma en español
+</p>
+
+<ol>
+<li>
+Carga el paquete <code>locales</code> y añadelo a <code>sceboot.list</code>: <code>sce-import locales &amp;&amp; sce-load locales</code>
+
+<li>
+Reinicia
+
+<li>
+Genera el idioma: <code>locale-gen --archive</code>
+
+<li>
+Crea una extensión con los archivos
+
+<li>
+Añadelo a tu <code>sceboot.list</code>.
+
+</ol>
+
+<div id="dCore Linux-Aplicaciones extra y persistencia"><h2 id="Aplicaciones extra y persistencia" class="header"><a href="#dCore Linux-Aplicaciones extra y persistencia">Aplicaciones extra y persistencia</a></h2></div>
+<p>
+Las aplicaciones de las que dispone <code>dCore Linux</code> pertenecen a los paquetes en los repositorios de la distribución en la que se basa y a paquetes especiales desarrollados por la comunidad o desarrolladores del proyecto. Sin embargo, es posible disponer de otro tipo de aplicaciones, sea compilando para la arquitectura o haciendo uso de un gestor de paquetes externo.
+</p>
+
+<div id="dCore Linux-Aplicaciones extra y persistencia-Usando `python3-pip` como gestor de paquetes"><h3 id="Usando `python3-pip` como gestor de paquetes" class="header"><a href="#dCore Linux-Aplicaciones extra y persistencia-Usando `python3-pip` como gestor de paquetes">Usando <code>python3-pip</code> como gestor de paquetes</a></h3></div>
+<p>
+Los repositorios de <code>python</code> almancenan buena cantidad de aplicaciones que son fáciles de instalar y mantener usando la herramienta <code>pip</code>. Así, podemos tener la última versión de alguna útilidad importante que se desarrolle (o se mantenga allí) en los repositorios de <code>python</code>.
+</p>
+
+<p>
+<span id="dCore Linux-Aplicaciones extra y persistencia-Usando <code>python3-pip</code> como gestor de paquetes-Con persistencia usando filetool.sh"></span><strong id="Con persistencia usando filetool.sh">Con persistencia usando filetool.sh</strong>
+</p>
+
+<p>
+Por defecto, los paquetes instalados por <code>pip</code> se almacenan en una carpeta del directorio raíz. Si se añade el directorio al archivo <code>.filetool.lst</code> y despues se respalda usando <code>filetool.sh -v -p -b</code> bastaria para mantenerlas persistentes despues de cada reiniciio. Lamentablemente, lo anterior supone un uso de CPU y memoria mayor y por consiguiente, mayor tiempo de carga durante cada inicio de sesión.
+</p>
+
+<p>
+<span id="dCore Linux-Aplicaciones extra y persistencia-Usando <code>python3-pip</code> como gestor de paquetes-Con persistencia usando bootcodes y virtualenvs"></span><strong id="Con persistencia usando bootcodes y virtualenvs">Con persistencia usando bootcodes y virtualenvs</strong>
+</p>
+
+<p>
+Si se edita el <code>extlinux.conf</code> de la carpeta <code>boot</code> y se estipula un dispositivo fijo para hacer persistente <code>home</code>, entonces se puede crear un entorno virtual usando <code>virtualenv</code> en alguna carpeta del directorio. Entonces:
+</p>
+
+<ol>
+<li>
+Importa y carga la extensión <code>python3-pip</code>: <code>sce-import python3-pip &amp;&amp; sce-load python3-pip</code>
+    <span id="dCore Linux-Aplicaciones extra y persistencia-Usando <code>python3-pip</code> como gestor de paquetes-Importante"></span><strong id="Importante">Importante</strong>: la extensión <code>python3-pip</code> tiene que importada y cargada individualmente y no en algún metapaquete de usuario, de lo contrario no surte efecto.
+
+<li>
+Instala <code>virtualenv</code>: <code>sudo pip3 install virtualenv</code>
+
+<li>
+Finalmente, crea un directorio que servirá de entorno virtual para <code>virtualenv</code>: 
+    mkdir -p .virtualenvs
+    mkdir -p .virtualenvs/apps
+    virtualenv .virtualenvs/apps
+
+<li>
+Ahora, cada aplicación instalada tomará como directorio por defecto el seleccionado.
+
+</ol>
+
+<div id="dCore Linux-Crear extensiones"><h2 id="Crear extensiones" class="header"><a href="#dCore Linux-Crear extensiones">Crear extensiones</a></h2></div>
+<p>
+Para crear la extensión de un programa que se compila manulmente se tiene que crear un espacio de trabajo temporal y marcarlo como eldestino de la instalación durante la compilación, normalmente: <code>make DESTDIR=/tmp/programa</code>, o si se posee un archivo <code>configure</code>: <code>./.configure --prefix=/tmp/programa</code>.
+</p>
+
+<p>
+El proceso para la creación de extensiones se estructura como sigue: el aŕea de trabajo temporal, que es la carpeta destino donde se compiló el programa, se comprime usando SquashFS en un archivo con la extensión <code>.sce</code>. Posteriormente, basado en el archivo anterior, se crea un texto de verificación encriptado que se añade a un archivo legible, necesario durante la comprobación para la carga del programa.
+</p>
+
+<ol>
+<li>
+<code>mksquashfs /tmp/programa/ /tmp/programa.sce</code>
+
+<li>
+<code>md5sum /tmp/programa.sce &gt; /tmp/programa.sce.md5.txt</code>
+
+<li>
+<code>mv programa.* /etc/sysconfig/tcedir/sce/</code>
+
+<li>
+<code>sce-load programa</code>
+
+</ol>
+
+<p>
+El script <code>dcore-extensions-generator.sh</code> intenta automatizar este proceso. Aún está en etapa experimental.
+</p>
+
+</body>
+</html>

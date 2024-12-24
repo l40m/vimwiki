@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>mpv</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="MPV"><h1 id="MPV" class="header"><a href="#MPV">MPV</a></h1></div>
+
+<div id="MPV-Configuración estable"><h2 id="Configuración estable" class="header"><a href="#MPV-Configuración estable">Configuración estable</a></h2></div>
+<blockquote>
+scale=bilinear
+cscale=bilinear
+dscale=bilinear
+scale-antiring=0
+cscale-antiring=0
+dither-depth=no
+correct-downscaling=no
+sigmoid-upscaling=no
+deband=no
+hwdec=auto
+ytdl-format=bestvideo[height&lt;=?720][fps&lt;=?30][vcodec!=?vp9]+bestaudio/best
+</blockquote>
+
+<div id="MPV-Establecer calidad"><h2 id="Establecer calidad" class="header"><a href="#MPV-Establecer calidad">Establecer calidad</a></h2></div>
+
+<div id="MPV-Establecer calidad-Establecer una calidad de video por defecto:"><h3 id="Establecer una calidad de video por defecto:" class="header"><a href="#MPV-Establecer calidad-Establecer una calidad de video por defecto:">Establecer una calidad de video por defecto:</a></h3></div>
+
+<p>
+Agregar a mpv.conf lo que sigue:
+</p>
+<blockquote>
+ytdl-format=bestvideo[height&lt;=?720][fps&lt;=?30][vcodec!=?vp9]+bestaudio/best
+</blockquote>
+
+<p>
+Recuperado de: <a href="https://github.com/mpv-player/mpv/issues/4241">https://github.com/mpv-player/mpv/issues/4241</a>
+</p>
+
+<div id="MPV-Establecer calidad-Establecer una calidad de video _on the fly_:"><h3 id="Establecer una calidad de video _on the fly_:" class="header"><a href="#MPV-Establecer calidad-Establecer una calidad de video _on the fly_:">Establecer una calidad de video <em>on the fly</em>:</a></h3></div>
+
+<ul>
+<li>
+<a href="https://github.com/jgreco/mpv-youtube-quality">mpv-youtube-quality</a>
+
+</ul>
+
+</body>
+</html>

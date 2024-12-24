@@ -1,0 +1,8 @@
+= Reunión 1 =
+
+*Tareas urgentes*:
+- Medio oficial de comunicación:
+	- tox: qtox, 
+
+*Tareas generales*:
+- Símbolo representativo

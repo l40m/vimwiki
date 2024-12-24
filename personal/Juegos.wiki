@@ -1,0 +1,17 @@
+SNES
+	- Tactics Ogre - Let Us Cling Together (Japan) 
+	- Shadowrun (USA)
+	- Secret of Evermore (USA)
+	- Secret of Mana 
+	- Terranigma (Europe) 
+	- Lufia & The Fortress of Doom (USA) 
+	- EarthBound (USA)
+
+PC
+- [x] Criminal Origins
+
+PSX
+	- [] Parasite Eve
+	- [] Fate
+	- [] Fear Effect
+

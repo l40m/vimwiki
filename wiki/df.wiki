@@ -1,0 +1,12 @@
+ = Dwarf Fortress =
+ 
+> Dynamically loading the sndfile library failed, disabling sound
+
+    cd /usr/lib
+    sudo ln -s libopenal.so.1 libopenal.so
+    sudo ln -s libsndfile.so.1 libsndfile.so
+    sudo ldconfig
+    
+> libpng error: bad parameters to zlib'error    
+
+    export LD_PRELOAD=/lib32/libz.so.1

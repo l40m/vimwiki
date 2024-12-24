@@ -1,0 +1,9 @@
+=Mutt=
+Probado con éxito en: `dCore Xenial`.
+==Instalación==
+- Carga un meta-paquete con: `mutt mutt-patched libsasl12-modules`.
+==Configuración==
+
+==Problemas conocidos==
+Para poder visualizar los acentos del español, usar `w3m` en vez de `elinks`.
+Para evitar que tarde una carga entre carpetas/cuentas: `set sleep_time=0` ([[https://bbs.archlinux.org/viewtopic.php?id=130997|Fuente]]).

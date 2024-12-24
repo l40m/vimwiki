@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>vim</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="VIM"><h1 id="VIM" class="header"><a href="#VIM" class="justcenter">VIM</a></h1></div>
+
+<div id="VIM-Configuración"><h2 id="Configuración" class="header"><a href="#VIM-Configuración" class="justcenter">Configuración</a></h2></div>
+<div id="VIM-Configuración-Idioma y auto-corrector (spellchecker)"><h3 id="Idioma y auto-corrector (spellchecker)" class="header"><a href="#VIM-Configuración-Idioma y auto-corrector (spellchecker)" class="justcenter">Idioma y auto-corrector (spellchecker)</a></h3></div>
+<blockquote>
+Remplaza 74 con el numero de tu version
+</blockquote>
+<ol>
+<li>
+Descarga los archivos de idioma y copialos a <code>usr/share/vim/vim74/spell/</code>
+
+<li>
+Hazles persistente en <code>/opt/.filetool.lst</code>
+
+</ol>
+<p>
+&gt; usr/share/vim/vim74/spell/es.utf-8.sug
+&gt; usr/share/vim/vim74/spell/es.utf-8.spl
+&gt; usr/share/vim/vim74/spell/es.latin1.sug
+&gt; usr/share/vim/vim74/spell/es.latin1.spl
+&gt; usr/share/vim/vim74/spell/es_MX.diff
+&gt; usr/share/vim/vim74/spell/es_ES.diff
+</p>
+
+<div id="VIM-Configuración-Idioma y auto-corrector (spellchecker)-Activa la opción en tu `$HOME/.vimrc`:"><h4 id="Activa la opción en tu `$HOME/.vimrc`:" class="header"><a href="#VIM-Configuración-Idioma y auto-corrector (spellchecker)-Activa la opción en tu `$HOME/.vimrc`:">Activa la opción en tu <code>$HOME/.vimrc</code>:</a></h4></div>
+<p>
+&gt; set spell
+&gt; set spell spelllang=es
+&gt; setlocal spell spelllang=es
+&gt; set spellfile=~/.vim/dict_es.add
+</p>
+
+</body>
+</html>

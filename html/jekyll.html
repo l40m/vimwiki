@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>jekyll</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Blog con Jekyll de [[ruby|Ruby]] y GitHub Pages de ya saben quien"><h1 id="Blog con Jekyll de [[ruby|Ruby]] y GitHub Pages de ya saben quien" class="header"><a href="#Blog con Jekyll de [[ruby|Ruby]] y GitHub Pages de ya saben quien">Blog con Jekyll de <a href="ruby.html">Ruby</a> y GitHub Pages de ya saben quien</a></h1></div>
+
+<ol>
+<li>
+Jekyll necesita la versión 2.4.0 de Ruby, así que necesitas compilarlo manualmente. Necesitas cargar <code>make</code>, <code>pkg-config</code>, <code>libssl-dev</code> y <code>g++</code> (estos paquetes los contiene la meta extensión de usuario <code>compile</code>).
+
+<li>
+Para mayor soporte, necesitarás cargar <code>libreadline-dev</code>, <code>libssl-dev</code> y <code>zlib1g-dev</code>.
+
+<li>
+Es posible que requieras especificar la localización de esas librerias. Por lo que el comando que sigue deberia bastar:
+
+<li>
+<code>./configure --prefix=/tmp/ruby-2.7.1 --with-openssl-dir=/usr/local/ssl --with-readline-dir=/usr --with-zlib-dir=/usr</code>
+
+</ol>
+
+
+<div id="Blog con Jekyll de [[ruby|Ruby]] y GitHub Pages de ya saben quien-Crear un sitio web estático"><h2 id="Crear un sitio web estático" class="header"><a href="#Blog con Jekyll de [[ruby|Ruby]] y GitHub Pages de ya saben quien-Crear un sitio web estático">Crear un sitio web estático</a></h2></div>
+<blockquote>
+<code>gem install bundler jekyll</code>
+<code>jekyll new nombre</code>
+<code>cd nombre</code>
+<code>bundle exec jekyll serve</code>
+<code>http://localhost:4000</code>    
+</blockquote>
+
+</body>
+</html>

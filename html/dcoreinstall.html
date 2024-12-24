@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>dcoreinstall</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Introducción"><h1 id="Introducción" class="header"><a href="#Introducción">Introducción</a></h1></div>
+<p>
+dCore Linux es una versión de la distribución GNU/Linux, Tiny Core Linux. Es ligera, modular y estable. Se comporta como un sistema empotrado. A diferencia del Tiny Core Linux, si bien ambos suplen sus necesidades con extensiones, es decir, programas especiales para la arquitectura. 
+</p>
+
+<div id="Primeros pasos"><h1 id="Primeros pasos" class="header"><a href="#Primeros pasos">Primeros pasos</a></h1></div>
+<div id="Primeros pasos-Instalador"><h2 id="Instalador" class="header"><a href="#Primeros pasos-Instalador">Instalador</a></h2></div>
+<ul>
+<li>
+Importa y carga:
+    <code>sce-import dCore-install</code>
+    <code>sce-load dCore-install</code>
+
+<li>
+Ejecuta como super-usuario
+
+</ul>
+
+<div id="Primeros pasos-Drivers"><h2 id="Drivers" class="header"><a href="#Primeros pasos-Drivers">Drivers</a></h2></div>
+<p>
+Remplaza <em>4.2.9</em> con la versión de tu kernel: <code>uname -a</code>.
+</p>
+
+<p>
+<span id="Primeros pasos-Drivers-Red"></span><strong id="Red">Red</strong>
+</p>
+<blockquote>
+wireless
+wireless-kernel-tinycore
+wifi
+</blockquote>
+
+<p>
+<span id="Primeros pasos-Drivers-Gráficos"></span><strong id="Gráficos">Gráficos</strong>
+</p>
+<blockquote>
+graphics-kernel-tinycore
+xorg-intel
+</blockquote>
+
+<p>
+<span id="Primeros pasos-Drivers-Audio"></span><strong id="Audio">Audio</strong>
+</p>
+<blockquote>
+alsa-modules-kernel-tinycore
+alsa-utils
+</blockquote>
+
+<div id="Primeros pasos-Bootloader"><h2 id="Bootloader" class="header"><a href="#Primeros pasos-Bootloader">Bootloader</a></h2></div>
+<p>
+Esta son las lineas que uso actualmente.
+</p>
+<blockquote>
+<code>noautologin lang=es_MX.UTF-8 tce=sda5 opt=sda5 home=sda5 laptop desktop=i3</code>
+<code>tce=sda1 opt=sda1 home=sda1 laptop kmap=qwerty/es lang=es_MX.UTF-8 tz=UTC-8 noautologin multivt video=SVIDEO-1:d desktop=i3</code>
+</blockquote>
+<ol>
+<li>
+noautologin: No se inicia sesión automáticamente. Solicita una contraseña para iniciar sesión (se requiere si se pretende usar <code>ssh</code>)
+
+<li>
+lang: Lenguaje.
+
+<li>
+tce: Directorio Tiny Core Linux.
+
+<li>
+opt: Directorio Tiny Core Linux para configuraciones.
+
+<li>
+home: Directorio personal.
+
+<li>
+desktop: Nombre de la aplicación usada como entorno de escritorio.
+
+<li>
+
+
+</ol>
+
+<div id="Primeros pasos-Extensiones comunes"><h2 id="Extensiones comunes" class="header"><a href="#Primeros pasos-Extensiones comunes">Extensiones comunes</a></h2></div>
+<p>
+<code>sce-remove vim sxiv atool unrar xbindkeys mylocale pass python3-pip gnupg xclip mpd ncmpcpp i3-gaps i3-gaps-dependencies i3status rofi mutt mutt-patched libsasl2-modules sed bash git tmsu zlib file w3m-img mpc poppler-utils scrot</code>
+</p>
+
+<p>
+Para una lista más extendida visite: <a href="apps.html">Aplicaciones</a>
+</p>
+
+<div id="Primeros pasos-Configuración"><h2 id="Configuración" class="header"><a href="#Primeros pasos-Configuración">Configuración</a></h2></div>
+<div id="Primeros pasos-Configuración-Meta-extensiones"><h3 id="Meta-extensiones" class="header"><a href="#Primeros pasos-Configuración-Meta-extensiones">Meta-extensiones</a></h3></div>
+<p>
+sce-import -dl
+d: selecciona un programa para proveerle extensiones
+l: selecciona un archivo con nombres de programas para hacer uno solo
+</p>
+
+<p>
+Si creas meta-programas esenciales, puedes usarlos como referencia para nuevas extensiones y reducir su tama;o
+</p>
+
+</body>
+</html>

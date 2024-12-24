@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>Sistema de audio</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Sistema de audio"><h1 id="Sistema de audio" class="header"><a href="#Sistema de audio">Sistema de audio</a></h1></div>
+
+<p>
+<code>xbps-install apulse pipewire alsa-pipewire pamixer</code>
+</p>
+
+<p>
+Uncomment the following line in <code>/usr/share/pipewire/pipewire.conf</code>
+</p>
+
+<p>
+   "/usr/bin/pipewire" = { args = "-c pipewire-pulse.conf" }
+</p>
+
+<p>
+Run these commands (for ALSA integration):
+</p>
+
+<p>
+   mkdir -p /etc/alsa/conf.d
+   ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d
+   ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
+</p>
+   
+<p>
+Edit /etc/pulse/client.conf and replace <code>; autospawn = yes</code> with <code>autospawn = no</code>.
+</p>
+
+<p>
+Finally, set Pipewire to start when you start a user session/log in. Since I'm using sway, I did this by adding the following line to <code>~/.config/sway/config</code>: <code>exec pipewire</code>
+</p>
+
+<p>
+EDIT 2: Run "pactl info" after rebooting. If Pipewire is working, it should return something like "Server Name: PulseAudio (on PipeWire 0.3.21)"
+</p>
+
+<div id="Sistema de audio-Permission denied"><h2 id="Permission denied" class="header"><a href="#Sistema de audio-Permission denied">Permission denied</a></h2></div>
+
+<p>
+Instalar y habilitar <code>elogind</code> debería bastar. En orden de funcionar de debe desactivar primero ACPI o configurarlo para que funcionen conjuntamente. 
+</p>
+
+<p>
+   sudo xbps-install elogind
+   sudo rm /var/service/acpid
+   ln -s /etc/sv/elogind /var/service/
+</p>
+
+<p>
+<code>sudo xbps-install dbus-elogind, dbus-elogind-libs and dbus-elogind-x11</code>
+</p>
+
+<div id="Sistema de audio-Firefox"><h2 id="Firefox" class="header"><a href="#Sistema de audio-Firefox">Firefox</a></h2></div>
+
+<p>
+apulse firefox
+</p>
+
+<div id="Sistema de audio-MPD"><h2 id="MPD" class="header"><a href="#Sistema de audio-MPD">MPD</a></h2></div>
+
+<p>
+   audio_output {
+</p>
+<blockquote>
+type                    "alsa"
+name                    "Sound Card"
+options                 "dev=dmixer"
+device                  "plug:dmix"
+</blockquote>
+<p>
+   }
+</p>
+
+<p>
+Debe ser el único <code>audio_output</code> relacionado con ALSA, pulse o pipewire.
+</p>
+
+<div id="Sistema de audio-ALSA .asoundrc"><h2 id="ALSA .asoundrc" class="header"><a href="#Sistema de audio-ALSA .asoundrc">ALSA .asoundrc</a></h2></div>
+
+<p>
+   pcm.dmixed {
+</p>
+<blockquote>
+type asym
+playback.pcm {
+type dmix
+ipc_key 5678293
+ipc_perm 0660
+ipc_gid audio
+</blockquote>
+<blockquote>
+slave {
+channels 2 # make 6 or 5.1 channel
+pcm {
+format S16_LE # S32_LE
+rate 48000 # can also be 44100
+type hw
+card 0 # your card
+device 0 # your device
+subdevice 0 #important?
+}
+</blockquote>
+<blockquote>
+period_size 1024
+buffer_size 8192
+}
+</blockquote>
+<blockquote>
+bindings {
+0 0
+1 1
+</blockquote>
+<ol>
+<li>
+Uncomment below if using 6 channel
+
+<li>
+                      2 2
+
+<li>
+                      3 3
+
+<li>
+                      4 4
+
+<li>
+                      5 5
+                   }
+           }
+           capture.pcm "hw:0"
+   }
+
+</ol>
+   
+<p>
+   pcm.!default {
+</p>
+<blockquote>
+type plug
+slave.pcm "dmixed"
+</blockquote>
+<p>
+   }
+</p>
+   
+   
+<div id="Sistema de audio-ALSA .asoundrc-Posibles complicaciones"><h3 id="Posibles complicaciones" class="header"><a href="#Sistema de audio-ALSA .asoundrc-Posibles complicaciones">Posibles complicaciones</a></h3></div>
+
+<p>
+Firefox requiere apulse
+Tmux necesita que se abra primero alsamixer, se seleccionen los canales de audio y se reinicie la terminal
+</p>
+
+</body>
+</html>

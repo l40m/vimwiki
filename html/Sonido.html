@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>Sonido</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Sonido"><h1 id="Sonido" class="header"><a href="#Sonido">Sonido</a></h1></div>
+
+<div id="Sonido-Alsamixer"><h2 id="Alsamixer" class="header"><a href="#Sonido-Alsamixer">Alsamixer</a></h2></div>
+
+<ol>
+<li>
+Genera el estado de sonido actual: <code>alsactl --file ~/.config/alsamixer/asound.state store</code>
+
+<li>
+Agrega <code>alsactl --file ~/.config/alsamixer/asound.state restore</code> a <code>bootlocal.sh</code> 
+
+</ol>
+   
+   
+<div id="Sonido-Después de `libreboot`"><h2 id="Después de `libreboot`" class="header"><a href="#Sonido-Después de `libreboot`">Después de <code>libreboot</code></a></h2></div>
+<p>
+Front Mic (del apartado de Capture) y Capture deben estar edentificados como CAPTURE. Todo lo que no sea Digital debe estar con volumen 0.
+</p>
+
+</body>
+</html>

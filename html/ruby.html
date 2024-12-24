@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>ruby</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Ruby"><h1 id="Ruby" class="header"><a href="#Ruby">Ruby</a></h1></div>
+<div id="Ruby-Compilar `ruby`"><h2 id="Compilar `ruby`" class="header"><a href="#Ruby-Compilar `ruby`">Compilar <code>ruby</code></a></h2></div>
+<ul>
+<li>
+Descarga la última versión del sitio oficial
+
+<li>
+Carga la extensión para compilar, seguramente <code>compile</code>
+
+<li>
+Descomprime el archivo, situate en la carpeta
+
+<li>
+Ejecuta: <code>./configure --prefix=$HOME/.local</code>, <code>make</code> y finalmente <code>sudo make install</code>.
+
+</ul>
+
+<div id="Ruby-Compilar `ruby`-Compila el soporte para `openssl`"><h3 id="Compila el soporte para `openssl`" class="header"><a href="#Ruby-Compilar `ruby`-Compila el soporte para `openssl`">Compila el soporte para <code>openssl</code></a></h3></div>
+<p>
+&gt; Para instalar gemas usando https requieres soporte de openssl. 
+</p>
+<ul>
+<li>
+Entra a la carpeta <code>ext/openssl</code> y compila usando <code>ruby extconf.rb</code>
+
+<li>
+Edita el Makefile añadiendo <code>top_srcdir = ../..</code> abajo de <code>archdir</code>.
+
+<li>
+Ejecuta <code>make</code> y <code>sudo make install</code>.
+
+</ul>
+
+<div id="Ruby-Problemas frecuentes"><h2 id="Problemas frecuentes" class="header"><a href="#Ruby-Problemas frecuentes">Problemas frecuentes</a></h2></div>
+<blockquote>
+ERROR: Could not find a valid gem 'jekyll' (&gt;= 0)
+</blockquote>
+<p>
+Lo anterior se soluciona agregando: 
+<code>gem sources --remove https://rubygems.org/</code> y despues;
+<code>gem sources -a http://rubygems.org/</code>.
+</p>
+
+</body>
+</html>

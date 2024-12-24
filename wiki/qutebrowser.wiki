@@ -1,0 +1,9 @@
+= Qutebrowser =
+
+== Configuraciones ==
+
+No editar el archivo `autoconfig.yml`. Ese es un archivo autogenerado por las configuraciones que el usuario haga a través de la interfaz gráfica del programa. Las configuraciones y su modificación pueden ser encontradas en `qute://settings`. 
+
+Debe editarse el archivo `config.py`. 
+
+=== Javascript toggle ===

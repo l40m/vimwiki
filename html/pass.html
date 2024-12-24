@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>pass</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="pass"><h1 id="pass" class="header"><a href="#pass">pass</a></h1></div>
+
+<div id="pass-Errores"><h2 id="Errores" class="header"><a href="#pass-Errores">Errores</a></h2></div>
+
+<div id="pass-Errores-gpg: 2048R/FA829B53: skipped: No public key o gpg: [stdin]: encryption failed: No public key"><h3 id="gpg: 2048R/FA829B53: skipped: No public key o gpg: [stdin]: encryption failed: No public key" class="header"><a href="#pass-Errores-gpg: 2048R/FA829B53: skipped: No public key o gpg: [stdin]: encryption failed: No public key">gpg: 2048R/FA829B53: skipped: No public key o gpg: [stdin]: encryption failed: No public key</a></h3></div>
+
+<p>
+<span id="pass-Errores-gpg: 2048R/FA829B53: skipped: No public key o gpg: [stdin]: encryption failed: No public key-Solución"></span><strong id="Solución">Solución</strong>:
+</p>
+<blockquote>
+$ gpg --export-secret-keys &gt; keyfile
+$ gpg2 --import keyfile
+$ gpg2 --edit-key key
+gpg&gt; trust
+[...]
+Your decision? 5
+Do you really want to set this key to ultimate trust? (y/N) y
+[...]
+gpg&gt; save
+</blockquote>
+
+<p>
+Fuentes: <a href="https://unix.stackexchange.com/questions/226944/pass-and-gpg-no-public-key">https://unix.stackexchange.com/questions/226944/pass-and-gpg-no-public-key</a>
+</p>
+
+<div id="pass-Errores-gpg: decryption failed: No secret key"><h3 id="gpg: decryption failed: No secret key" class="header"><a href="#pass-Errores-gpg: decryption failed: No secret key">gpg: decryption failed: No secret key</a></h3></div>
+
+<p>
+<span id="pass-Errores-gpg: decryption failed: No secret key-Solución"></span><strong id="Solución">Solución</strong>:
+</p>
+<blockquote>
+$ ps aux | grep gpg-agent
+</blockquote>
+
+<p>
+Fuentes: <a href="https://security.stackexchange.com/questions/184865/gpg-decryption-failed-no-secret-key">https://security.stackexchange.com/questions/184865/gpg-decryption-failed-no-secret-key</a>
+</p>
+
+<div id="pass-Errores-gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' &quot; error while using Gnupg"><h3 id="gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' &quot; error while using Gnupg" class="header"><a href="#pass-Errores-gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' &quot; error while using Gnupg">gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error while using Gnupg</a></h3></div>
+
+<p>
+<span id="pass-Errores-gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' &quot; error while using Gnupg-Solución"></span><strong id="Solución">Solución</strong>:
+   chown -R \((whoami) \)$GPGHOME
+   chmod 600 $GPGHOME
+   chmod 700 $GPGHOME
+</p>
+
+<p>
+Fuentes: <a href="https://gist.github.com/oseme-techguy/bae2e309c084d93b75a9b25f49718f85">https://gist.github.com/oseme-techguy/bae2e309c084d93b75a9b25f49718f85</a>
+</p>
+
+<div id="pass-Importar llaves privadas"><h2 id="Importar llaves privadas" class="header"><a href="#pass-Importar llaves privadas">Importar llaves privadas</a></h2></div>
+<blockquote>
+$ gpg --import secretkey.asc
+$ gpg --import publickey.asc
+$ gpg --import-ownertrust ownertrust.asc
+</blockquote>
+
+</body>
+</html>

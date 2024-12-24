@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>i3-gaps</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="i3-gaps"><h1 id="i3-gaps" class="header"><a href="#i3-gaps">i3-gaps</a></h1></div>
+
+<div id="i3-gaps-Dependencias"><h2 id="Dependencias" class="header"><a href="#i3-gaps-Dependencias">Dependencias</a></h2></div>
+<p>
+Para compilar, i3-gaps requiere de ciertas dependencias. Algunas generales, necesarias para compilar cualquier otro paquete. La página del proyecto tienes una lista de dependencias más adecuada según la distribución que se este usando.
+</p>
+<blockquote>
+Para usuarios de <code>dCore Linux</code>: puedes hacer un archivo de texto llamada <code>i3-gaps</code> con todas estas extensiones e importarlas como un meta-paquete: <code>sce-import -l i3-gaps</code>. 
+La libreria xcb se obtiene del siguiente <code>ppa</code>: <code>ppa:aguignard/ppa</code>.
+La extensiones siguientes son para <code>dCore Xenial</code>: <code>pkg-config make automake autoconf gcc git libpng12-dev libxcb-shape0-dev libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm-dev</code>
+</blockquote>
+
+<div id="i3-gaps-Instalación"><h2 id="Instalación" class="header"><a href="#i3-gaps-Instalación">Instalación</a></h2></div>
+<ul>
+<li>
+Satisface las dependencias
+
+<li>
+Clona el repositorio y sitúate dentro de el: <code>git clone https://www.github.com/Airblader/i3 i3-gaps &amp;&amp; cd i3-gaps</code>
+
+<li>
+Compila e instala: <code>autoreconf --force --install</code>
+
+<li>
+Esto ni idea qué hace, pero idk: <code>rm -rf build/ &amp;&amp; mkdir -p build &amp;&amp; cd build/</code>
+
+<li>
+Configura: <code>./configure --prefix=~/.local --sysconfdir=~/.local --disable-sanitizers</code>
+
+<li>
+Compila: <code>make &amp;&amp; sudo make install</code>
+
+</ul>
+
+<div id="i3-gaps-Fuentes"><h2 id="Fuentes" class="header"><a href="#i3-gaps-Fuentes">Fuentes</a></h2></div>
+<p>
+<a href="https://github.com/Airblader/i3/wiki/Building-from-source">https://github.com/Airblader/i3/wiki/Building-from-source</a>
+</p>
+
+</body>
+</html>

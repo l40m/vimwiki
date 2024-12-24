@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>lxt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Instalación"><h2 id="Instalación" class="header"><a href="#Instalación">Instalación</a></h2></div>
+
+<div id="Instalación-Descarga LaTex"><h3 id="Descarga LaTex" class="header"><a href="#Instalación-Descarga LaTex">Descarga LaTex</a></h3></div>
+<p>
+LaTeX puede ser proveido por multiples lugares. Por ejemplo, Texlive.
+</p>
+<ol>
+<li>
+Existen dos diferentes versiones, DVD y Netinstall. El DVD se baja por torrent.
+
+<li>
+Existen binarios para diferentes distribuciones proveidas por ambas versiones de descarga, pero para reducir el tamaño, DVD excluyó la mayoria y dejó solamente las versiones de 64 bits para las distribuciones más demandadas y una de 32 para Windows. Para instalar LaTeX usando un binario diferente, por ejemplo, la versión X86 para GNU/Linux, se puede optar por la versión Netinstall o descargar el binario pre-combilado: <a href="http://ftp.math.utah.edu/pub/texlive-utah/bin/">http://ftp.math.utah.edu/pub/texlive-utah/bin/</a>
+
+<li>
+Para lectura: <a href="http://tug.org/texlive/custom-bin.html">http://tug.org/texlive/custom-bin.html</a> | <a href="https://www.tug.org/texlive/doc.html">https://www.tug.org/texlive/doc.html</a>
+
+</ol>
+
+<div id="Instalación-Instalador"><h3 id="Instalador" class="header"><a href="#Instalación-Instalador">Instalador</a></h3></div>
+<blockquote>
+Nota para usuarios de dCore Linux: configura el instalador para que la instalación se realice localmente. Entonces, añade las siguientes definiciones a tu .ashrc para que reconozca el directorio: <code>export PATH=\(PATH:\)HOME/.local/texlive/bin/:$PATH</code>.
+</blockquote>
+<ol>
+<li>
+Si se optó por la instalación vía DVD habrá que montar la imagen <code>.iso</code> usando <code>mount -t iso9660 -o ro,loop,noauto /your/texlive.iso /media</code>.
+
+<li>
+Situado en el directorio montado (en el ejemplo anterior, <code>/media</code>), se ejecuta el instalador: <code>./install-tl</code>.
+
+<li>
+Aspectos a considerar:
+
+<ol>
+<li>
+Binarios: Texlive provee diferentes binarios para diferentes distribuciones. Si deseas instalar un binario diferente o no ha sido listado el binario para tu distribución tienes que indicarle al instalador que usarás unos diferente previamente descargado. Para ello, revisa la <code>lista de binarios pre-compilados</code> y descarga el que se adapte a ti, entonces indicale al instalador con: `./install-tl --custom-bin=dirección/carpeta".
+
+<li>
+Directorios: Para usuarios de dCore Linux, resulta más comodo, debido al tamaño del software, que la instalación se realice localmente. Indica, dentro del instalador, la carpeta local donde deseas instalar LaTeX, como por ejemplo <code>~/.local/texlive/</code>.
+
+<li>
+Instalación o portable: la instalación común para cualquier otro sistema con una funcionalidad diferente a la de dCore Linux hará uso de las variables del sistema y las librerias que tenga disponibles. Si se elige la opción de portable toda las dependencias las satisfará el directorio de instalación y por tanto será totalmente transportable. Para usuarios de dCore Linux no creo exista diferencia, así que es mejor, debido a la forma en la que funciona el sistema, elegir la versión portable.
+
+</ol>
+</ol>
+
+<div id="Configuración"><h2 id="Configuración" class="header"><a href="#Configuración">Configuración</a></h2></div>
+
+<div id="Configuración-Instalar soporte APA7"><h3 id="Instalar soporte APA7" class="header"><a href="#Configuración-Instalar soporte APA7">Instalar soporte APA7</a></h3></div>
+<ul>
+<li>
+Biblatex: <a href="https://tex.stackexchange.com/questions/412670/where-can-i-download-biblatex-a-complete-novice?noredirect=1&amp;lq=1">https://tex.stackexchange.com/questions/412670/where-can-i-download-biblatex-a-complete-novice?noredirect=1&amp;lq=1</a>
+
+<li>
+<code>tlmgr</code>
+
+</ul>
+
+<div id="Instalar .cls"><h1 id="Instalar .cls" class="header"><a href="#Instalar .cls">Instalar .cls</a></h1></div>
+<blockquote>
+mkdir -p $HOME/.texmf/tex/latex/amazing
+sudo /usr/local/texlive/2012/bin/x86_64-linux/tlmgr conf texmf TEXMFHOME $HOME/.texmf
+mv amazingbook.cls $HOME/.texmf/tex/latex/amazing
+mktexlsr $HOME/.texmf
+latex amazing-stories-1.tex
+</blockquote>
+
+
+<div id="Instalar .cls-tlmgr"><h2 id="tlmgr" class="header"><a href="#Instalar .cls-tlmgr">tlmgr</a></h2></div>
+<p>
+xz-utils for update
+</p>
+
+<p>
+tlmgr install amsfonts amsmath lm unicode-math iftex listings fancyvrb longtable booktabs graphicx hyperref xcolor ulem geometry babel fontspec selnolig polyglossia xecjk bidi mathspec upquote microtype csquotes parskip xurl bookmark footnotehyper footnote
+</p>
+
+<div id="Relacionados"><h1 id="Relacionados" class="header"><a href="#Relacionados">Relacionados</a></h1></div>
+<div id="Relacionados-Editores online"><h2 id="Editores online" class="header"><a href="#Relacionados-Editores online">Editores online</a></h2></div>
+<ul>
+<li>
+<a href="https://tikzcd.yichuanshen.de/">https://tikzcd.yichuanshen.de/</a>
+
+</ul>
+
+</body>
+</html>

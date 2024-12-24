@@ -1,0 +1,10 @@
+*Herramientas*
+- [[para-escribir|Para escribir]]
+	- [[markdown+pandoc]]
+
+*Segundo sementre*
+- [[Administración]]
+- [[ed|Estadística descriptiva]]
+
+*Quinto Semestre*
+* [[Metodología de la investigación cuantitativa]]

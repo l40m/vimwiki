@@ -1,0 +1,39 @@
+=Trucos y esas cosas=
+
+==youtube-dl+[[mpv]]==
+Compilar ffmpeg con: `./configure --enable-nonfree --enable-openssl`.
+
+==Calibre==
+Comando para crear un epub de un pdf existente:
+    `ebook-convert out.epub in.pdf`
+
+==wkhtml==
+    `wkhtmltopdf link -o name.pdf`
+    
+==Stremear un server local usando sshfs==
+    `sshfs user@direction: ~/remote`
+
+==Montar un CD/DVD==
+    `mount -t iso9660 /dev/scd0 /media/cdrom`
+
+    `eject`
+    
+    `vobcopy`
+===Copiar las canciones de un CD (rip)===
+    `cdparanoia -vsZB`
+=== Convertir las canciones a ogg===
+    `oggenc nombre_fichero.wav -b 192`
+
+==Copiar carpetas sin los archivos==
+    `rysnc -a -f"+ */" -f"- *" ~/pictures/ ~/pictures/backup`
+==Sincronizar los archivos de una carpeta a otra==
+    `rsync -r from/ to/`   
+    
+==[[TMSU]]: ¿Cómo masivamente borrar el lote de archivos faltantes?== 
+    `tmsu status | grep -a ! | cut -c 3- | sed "s/^/'/;s/$/'/" | xargs tmsu untag --all`
+===Explicación===
+1. `tmsu status` imprime el estatus de los archivos
+2. `grep -a !` discrimina de la impresión las lineas que tengan '!', es decir, los archivos faltantes
+3. El principio de la linea empieza como: `!: nombredelarchivo.extensión`, por tanto, `cut -c 3-` cortaria las 3 primeras secuencias, es decir: `!espacio:`.
+4. Es posible que los directorios tengan espacios, así que la impresión que debe manejar tmsu tiene que estar dentro comillas, por tanto, añadimos: `sed "s/^/'/;s/$/'/"`.
+5. Así, finalmente, `xargs tmsu untag --all` eliminaria todas las etiquetas de los archivos resultantes, quizás algo como: `tmsu untag 'directorio del archivo/archivo.extensión' --all`

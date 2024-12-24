@@ -1,0 +1,12 @@
+= Dispositivos móviles =
+= iPhone =
+
+== ¿Cómo conectarse a un iPhone? ==
+
+Dependencias: `sudo xbps-install libimobiledevice ifuse usbmux`
+
+sudo ln -s /etc/sv/usbmuxd /var/service/
+
+ifuse <mount-point>
+
+fuentes: https://github.com/foxlet/void-guides/blob/master/setup-ios.md

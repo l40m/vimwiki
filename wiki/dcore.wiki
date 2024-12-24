@@ -1,0 +1,48 @@
+= dCore Linux =
+
+- [[Sonido]]
+
+1. [[dcoreinstall|Instalación]]
+
+== Locales ==
+Para que el sistema reconozca caracteres UFT8 y el idioma en español
+
+1. Carga el paquete `locales` y añadelo a `sceboot.list`: `sce-import locales && sce-load locales`
+2. Reinicia
+3. Genera el idioma: `locale-gen --archive`
+4. Crea una extensión con los archivos
+5. Añadelo a tu `sceboot.list`.
+
+== Aplicaciones extra y persistencia ==
+Las aplicaciones de las que dispone `dCore Linux` pertenecen a los paquetes en los repositorios de la distribución en la que se basa y a paquetes especiales desarrollados por la comunidad o desarrolladores del proyecto. Sin embargo, es posible disponer de otro tipo de aplicaciones, sea compilando para la arquitectura o haciendo uso de un gestor de paquetes externo.
+
+=== Usando `python3-pip` como gestor de paquetes ===
+Los repositorios de `python` almancenan buena cantidad de aplicaciones que son fáciles de instalar y mantener usando la herramienta `pip`. Así, podemos tener la última versión de alguna útilidad importante que se desarrolle (o se mantenga allí) en los repositorios de `python`.
+
+*Con persistencia usando filetool.sh*
+
+Por defecto, los paquetes instalados por `pip` se almacenan en una carpeta del directorio raíz. Si se añade el directorio al archivo `.filetool.lst` y despues se respalda usando `filetool.sh -v -p -b` bastaria para mantenerlas persistentes despues de cada reiniciio. Lamentablemente, lo anterior supone un uso de CPU y memoria mayor y por consiguiente, mayor tiempo de carga durante cada inicio de sesión.
+
+*Con persistencia usando bootcodes y virtualenvs*
+
+Si se edita el `extlinux.conf` de la carpeta `boot` y se estipula un dispositivo fijo para hacer persistente `home`, entonces se puede crear un entorno virtual usando `virtualenv` en alguna carpeta del directorio. Entonces:
+
+1. Importa y carga la extensión `python3-pip`: `sce-import python3-pip && sce-load python3-pip`
+    *Importante*: la extensión `python3-pip` tiene que importada y cargada individualmente y no en algún metapaquete de usuario, de lo contrario no surte efecto.
+2. Instala `virtualenv`: `sudo pip3 install virtualenv`
+3. Finalmente, crea un directorio que servirá de entorno virtual para `virtualenv`: 
+    mkdir -p .virtualenvs/apps
+    virtualenv .virtualenvs/apps
+4. Ahora, cada aplicación instalada tomará como directorio por defecto el seleccionado.
+
+== Crear extensiones ==
+Para crear la extensión de un programa que se compila manulmente se tiene que crear un espacio de trabajo temporal y marcarlo como eldestino de la instalación durante la compilación, normalmente: `make DESTDIR=/tmp/programa`, o si se posee un archivo `configure`: `./.configure --prefix=/tmp/programa`.
+
+El proceso para la creación de extensiones se estructura como sigue: el aŕea de trabajo temporal, que es la carpeta destino donde se compiló el programa, se comprime usando SquashFS en un archivo con la extensión `.sce`. Posteriormente, basado en el archivo anterior, se crea un texto de verificación encriptado que se añade a un archivo legible, necesario durante la comprobación para la carga del programa.
+
+1. `mksquashfs /tmp/programa/ /tmp/programa.sce`
+2. `md5sum /tmp/programa.sce > /tmp/programa.sce.md5.txt`
+3. `mv programa.* /etc/sysconfig/tcedir/sce/`
+4. `sce-load programa`
+
+El script `dcore-extensions-generator.sh` intenta automatizar este proceso. Aún está en etapa experimental.

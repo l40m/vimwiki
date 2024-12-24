@@ -1,0 +1,29 @@
+= MPV =
+
+== Configuración estable ==
+
+    scale=bilinear
+    cscale=bilinear
+    dscale=bilinear
+    scale-antiring=0
+    cscale-antiring=0
+    dither-depth=no
+    correct-downscaling=no
+    sigmoid-upscaling=no
+    deband=no
+    hwdec=auto
+    ytdl-format=bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best
+
+== Establecer calidad ==
+
+=== Establecer una calidad de video por defecto: ===
+
+Agregar a mpv.conf lo que sigue:
+    
+    ytdl-format=bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best
+
+Recuperado de: https://github.com/mpv-player/mpv/issues/4241
+
+=== Establecer una calidad de video _on the fly_: === 
+
+* [[https://github.com/jgreco/mpv-youtube-quality|mpv-youtube-quality]]

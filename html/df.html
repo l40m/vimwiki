@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>df</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Dwarf Fortress"><h1 id="Dwarf Fortress" class="header"><a href="#Dwarf Fortress" class="justcenter">Dwarf Fortress</a></h1></div>
+ 
+<p>
+&gt; Dynamically loading the sndfile library failed, disabling sound
+</p>
+<blockquote>
+cd /usr/lib
+sudo ln -s libopenal.so.1 libopenal.so
+sudo ln -s libsndfile.so.1 libsndfile.so
+sudo ldconfig
+</blockquote>
+    
+<p>
+&gt; libpng error: bad parameters to zlib'error    
+</p>
+<blockquote>
+export LD_PRELOAD=/lib32/libz.so.1
+</blockquote>
+
+</body>
+</html>

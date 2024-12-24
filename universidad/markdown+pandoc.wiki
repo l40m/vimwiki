@@ -1,0 +1,44 @@
+= markdown+pandoc =
+
+*Template*:
+
+```
+---
+documentclass: extarticle
+nocite: |
+  @*
+lang: es
+csl: /home/l40mvoid/templates/apa.csl
+indent: yes
+papersize: a4
+toc: yes
+output: pdf
+fontsize: 11pt
+mainfont:
+linestretch: 1.5
+geometry: margin=2.5cm
+title: 
+author:
+---
+```
+
+== Formato ==
+
+Las especificaciones del formato de escritura se especifican en los metadatos (en estandar YAML) del documento a convertir con `pandoc`. Estos metadatos son configuraciones interpretables por `pandoc`. 
+
+* *Tamaño de papel*: a4 por defecto. Se determina con `papersize`.
+* *Tamaño de fuente*: 10pt por defecto. Se determina con `fontsize` usando pt como unidad de medida.
+* *Tipo de fuente*: _Computer Modern_ por defecto. Se determina con `mainfont` especificando el nombre de la fuente o la ruta del archivo.
+* *Interlineado*: sin interlineado por defecto. Se determina con `linestretch` sin unidad de medida.
+* *Margenes*: El tamaño por defecto de Word es 2.5cm (usualmente, el que pedirán los docentes). Se determina con `geometry: margin=xy` con unidad de medida libre, donde _x_ corresponde al tamaño y _y_ a la unidad.
+* *Estilo de citación*: por defecto Chicago. Se determina con `csl` especificando la ruta del archivo _csl_ que contenga las especificaciones del estilo de citación deseado.
+
+== Tamaño de fuente ==
+
+Por formato, el tamaño más grande de letra disponible es 11pt. Si se desea un número más grande es necesario especificar el formato con la opción `documentclass`. El formato es `exarticle`. El archivo debería configurarse de la forma que sigue: `documentclass: extarticle` y compilado con xualatex.
+
+== Citas == 
+
+Por defecto, solo las referencias citadas aparecen al final del documento. Esto porque se espera que se tenga un solo un archivo que figure de base de datos bibliográfica. Para que aparezca toda la bibliografía se debe especificar con `nocite`. 
+
+El estilo de citación se determina con la opción `csl` en las especificaciones del documento (entre los símbolos `---`). El formato `csl` es un archivo xml que contiene las especificaciones de algún estilo de citación dado. `csl` tiene que hacer referencia a la dirección del documento, v. gr.: `csl=$HOME/tempaltes/apa.csl`.

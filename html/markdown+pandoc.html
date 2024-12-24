@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>markdown+pandoc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="markdown+pandoc"><h1 id="markdown+pandoc" class="header"><a href="#markdown+pandoc">markdown+pandoc</a></h1></div>
+
+<p>
+<span id="markdown+pandoc-Template"></span><strong id="Template">Template</strong>:
+</p>
+
+<p>
+```
+---
+documentclass: extarticle
+nocite: |
+  @*
+lang: es
+csl: /home/l40mvoid/templates/apa.csl
+indent: yes
+papersize: a4
+toc: yes
+output: pdf
+fontsize: 11pt
+mainfont:
+linestretch: 1.5
+geometry: margin=2.5cm
+title: 
+author:
+---
+```
+</p>
+
+<div id="markdown+pandoc-Formato"><h2 id="Formato" class="header"><a href="#markdown+pandoc-Formato">Formato</a></h2></div>
+
+<p>
+Las especificaciones del formato de escritura se especifican en los metadatos (en estandar YAML) del documento a convertir con <code>pandoc</code>. Estos metadatos son configuraciones interpretables por <code>pandoc</code>. 
+</p>
+
+<ul>
+<li>
+<span id="markdown+pandoc-Formato-Tamaño de papel"></span><strong id="Tamaño de papel">Tamaño de papel</strong>: a4 por defecto. Se determina con <code>papersize</code>.
+
+<li>
+<span id="markdown+pandoc-Formato-Tamaño de fuente"></span><strong id="Tamaño de fuente">Tamaño de fuente</strong>: 10pt por defecto. Se determina con <code>fontsize</code> usando pt como unidad de medida.
+
+<li>
+<span id="markdown+pandoc-Formato-Tipo de fuente"></span><strong id="Tipo de fuente">Tipo de fuente</strong>: <em>Computer Modern</em> por defecto. Se determina con <code>mainfont</code> especificando el nombre de la fuente o la ruta del archivo.
+
+<li>
+<span id="markdown+pandoc-Formato-Interlineado"></span><strong id="Interlineado">Interlineado</strong>: sin interlineado por defecto. Se determina con <code>linestretch</code> sin unidad de medida.
+
+<li>
+<span id="markdown+pandoc-Formato-Margenes"></span><strong id="Margenes">Margenes</strong>: El tamaño por defecto de Word es 2.5cm (usualmente, el que pedirán los docentes). Se determina con <code>geometry: margin=xy</code> con unidad de medida libre, donde <em>x</em> corresponde al tamaño y <em>y</em> a la unidad.
+
+<li>
+<span id="markdown+pandoc-Formato-Estilo de citación"></span><strong id="Estilo de citación">Estilo de citación</strong>: por defecto Chicago. Se determina con <code>csl</code> especificando la ruta del archivo <em>csl</em> que contenga las especificaciones del estilo de citación deseado.
+
+</ul>
+
+<div id="markdown+pandoc-Tamaño de fuente"><h2 id="Tamaño de fuente" class="header"><a href="#markdown+pandoc-Tamaño de fuente">Tamaño de fuente</a></h2></div>
+
+<p>
+Por formato, el tamaño más grande de letra disponible es 11pt. Si se desea un número más grande es necesario especificar el formato con la opción <code>documentclass</code>. El formato es <code>exarticle</code>. El archivo debería configurarse de la forma que sigue: <code>documentclass: extarticle</code>.
+</p>
+
+<div id="markdown+pandoc-Citas"><h2 id="Citas" class="header"><a href="#markdown+pandoc-Citas">Citas</a></h2></div>
+
+<p>
+Por defecto, solo las referencias citadas aparecen al final del documento. Esto porque se espera que se tenga un solo un archivo que figure de base de datos bibliográfica. Para que aparezca toda la bibliografía se debe especificar con <code>nocite</code>. 
+</p>
+
+<p>
+El estilo de citación se determina con la opción <code>csl</code> en las especificaciones del documento (entre los símbolos <code>---</code>). El formato <code>csl</code> es un archivo xml que contiene las especificaciones de algún estilo de citación dado. <code>csl</code> tiene que hacer referencia a la dirección del documento, v. gr.: <code>csl=$HOME/tempaltes/apa.csl</code>.
+</p>
+
+</body>
+</html>

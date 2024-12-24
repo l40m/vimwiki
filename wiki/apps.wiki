@@ -1,0 +1,113 @@
+=Aplicaciones=
+
+== Emulador de terminal ==
+
+* [[urxvt]]
+
+==Calendario==
+
+- Calcurse
+
+==Mensajería==
+
+- [[tg|Telegram]]:
+	- [[telegram-cli]]
+- IRC: irssi
+
+==Correo==
+
+- [[mutt|Mutt]]
+- [[Isync]]
+
+==Multimedia==
+
+===Edición===
+
+- Flowblade
+- [[VimWiki]]
+
+=== Música===
+
+- [[mpd+ncmpcpp|Mpd+ncmpcpp]]
+
+===Streaming===
+
+- [[streaming|Youtube]]: 
+	- youtube-viewer
+	- [[youtube-viewer-fork]]: [[youtube-viewer-fork|straw-viewer]] (using it own API)
+	- [[MPlayer+youtube-dl]]: youtube-mplayer
+
+==Herramientas del sistema==
+
+    Usualmente, visualización de datos
+    
+- Visualización del trafico de red: wavemoon
+- Administrador de tareas: htop
+
+==Utilidades==
+
+- Administración de tareas: taskwarrior
+- Administrador de contraseñas: [[pass]]+gnupg
+- Administrador de archivos
+	- ranger
+	- Midnight Command: mc
+		- Etiquetar archivos: [[tricks|tmsu]]
+	- Editor de texto: [[vim|vIM]]/[[neovIM]]
+- Generador QR: qrencode
+- [[tricks|Convertir una pagina web a pdf]]
+- [[tricks|Calibre]]
+- [[lemonbar|Lemonbar]]
+- [[PyENV]]
+
+==Entornos de escritorio==
+==Gestores de ventanas==
+
+- [[i3-gaps|i3-gaps]]
+
+==Oficina==
+
+- [[lxt|LaTeX]]
+- [[pandoc|Pandoc]]
+
+==Internet==
+
+- Torrent: rtorrent
+- Reddit: rtv
+- GitHub: git
+- [[ssh|SSH]]
+- *tmate*: permite conectarte a otra computadora de forma remota sin necesidad de configuración previa.
+
+== Bloggin ==
+
+- [[jekyll|Github-pages+jekyll]]
+
+= Booting =
+
+- [[WoeUSB]]
+- [[libreboot]]
+
+===Navegadores===
+
+- Chromium
+	- Extensiones
+		- Gitzip: descargar una carpeta especifica de un repositorio en github.
+	- Folks
+		- ungoogle-chhromium
+
+=== Gestor de gastos ===
+- Ledger
+
+===Navegador web===
+- [[dotfiles|UZBL]]
+- [[qutebrowser]]
+
+=== Libreboot ===
+
+* [[VoidLinux|Void Linux]]
+
+=== Juegos ===
+
+- [[df|Dwarf Fortress]]
+- Urban Terror
+- OpenArena
+- OpenRA

@@ -1,0 +1,5 @@
+= Rxvt-unicode =
+== Problemas comunes ==
+=== Mostrar correctamente los símbolos ===
+
+Instalar ``ttf-freefont`` ``ttf-hack``.
